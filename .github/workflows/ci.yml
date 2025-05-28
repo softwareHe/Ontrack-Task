@@ -1,0 +1,31 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compile Java source and test files
+        run: |
+          mkdir -p out
+          javac -d out src/*.java test/*.java
+
+      - name: Run JUnit tests
+        run: |
+          cd out
+          java org.junit.runner.JUnitCore OntrackTaskTest
