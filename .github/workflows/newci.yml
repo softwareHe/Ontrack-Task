@@ -20,12 +20,5 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Compile Java source and test files
-        run: |
-          mkdir -p out
-          javac -d out src/*.java test/*.java
-
-      - name: Run JUnit tests
-        run: |
-          cd out
-          java org.junit.runner.JUnitCore OntrackTaskTest
+      - name: Build and test with Maven
+        run: mvn clean test
