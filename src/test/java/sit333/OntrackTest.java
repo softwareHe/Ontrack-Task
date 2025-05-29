@@ -27,6 +27,18 @@ public class OntrackTest{
 	        String result = inbox.getAssignmentStatus("Task3.1p");
 	        assertEquals("redo", result);
 	    }
+	    @Test
+	    public void testAssignmentStatusNotSubmitted() {
+	        OntrackTask inbox = new OntrackTask();
+	        String result = inbox.getAssignmentStatus("Task4.1p");
+	        assertEquals("not submitted", result);
+	    }
+	    @Test
+	    public void testAssignmentStatusWaitingToBeMarked() {
+	        OntrackTask inbox = new OntrackTask();
+	        String result = inbox.getAssignmentStatus("Task5.1p");
+	        assertEquals("waiting to be marked", result);
+	    }
 	
 }
 

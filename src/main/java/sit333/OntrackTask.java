@@ -9,8 +9,10 @@ public class OntrackTask{
             return "resubmit";
         } else if (taskName.equals("Task3.1p")) {
             return "redo";
+        } else if (taskName.equals("Task5.1p")) {
+            return "waiting to be marked";
         }
-        return "unknown";
-    }
-	
+        
+        return "not submitted";
+	}
 }
